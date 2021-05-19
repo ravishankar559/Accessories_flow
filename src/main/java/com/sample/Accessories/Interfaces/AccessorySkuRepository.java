@@ -5,11 +5,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
-import com.sample.Accessories.DTOs.Accessory;
+import com.sample.Accessories.Entity.Accessory;
 
 @Component
 public interface AccessorySkuRepository extends JpaRepository<Accessory , String> {
 
-	@Query("select acc from Accessory acc where acc.sku_id=:sku_id ")
-	Accessory findBySkuID(@Param("sku_id") String sku_id);
+	@Query("select acc from Accessory acc where acc.sku_id=:skuId ")
+	Accessory findBySkuID(@Param("skuId") String skuId);
 }
