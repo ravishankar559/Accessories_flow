@@ -1,0 +1,174 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.ehcache.org/v3"
+	xsi:schemaLocation="
+            http://www.ehcache.org/v3 
+            http://www.ehcache.org/schema/ehcache-core-3.7.xsd">
+	<!-- Persistent cache directory -->
+	<persistence directory="Accessories/cache" />
+	<!--Default cache template 
+	<cache-template name="default">
+		<expiry>
+			<ttl unit="seconds">10000</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache-template>-->
+
+	<!-- Cache configurations -->
+	<cache alias="accessory">
+		<key-type>java.lang.String</key-type>
+		<value-type>com.sample.Accessories.Entity.AccessoryCategory</value-type>
+		<expiry>
+			<ttl unit="seconds">15</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+	<cache alias="AccessoryCategories">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.util.ArrayList</value-type>
+		<expiry>
+			<ttl unit="seconds">30</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+	<cache alias="AccessoriesDetails">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.util.ArrayList
+		</value-type>
+		<expiry>
+			<ttl unit="minutes">200</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+	<cache alias="AccessoryProductByCategory">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.util.ArrayList
+		</value-type>
+		<expiry>
+			<ttl unit="minutes">30</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+	<cache alias="getAllAccessories">
+		<key-type>java.lang.String</key-type>
+		<value-type>java.util.ArrayList
+		</value-type>
+		<expiry>
+			<ttl unit="minutes">90</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+	<cache alias="leaseEligibilityService">
+		<key-type>java.lang.String</key-type>
+		<value-type>com.sample.Accessories.Entity.AccessoryDetails
+		</value-type>
+		<expiry>
+			<ttl unit="seconds">45</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>com.sample.Accessories.CacheEventLogger</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+				<events-to-fire-on>EVICTED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap>1000</heap>
+			<offheap unit="MB">10</offheap>
+			<disk persistent="true" unit="MB">20</disk>
+		</resources>
+	</cache>
+	
+
+</config>

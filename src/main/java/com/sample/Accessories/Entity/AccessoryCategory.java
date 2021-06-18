@@ -1,5 +1,7 @@
 package com.sample.Accessories.Entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,17 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "spr_cat_acc")
-public class AccessoryCategory implements Comparable<AccessoryCategory>{
+public class AccessoryCategory implements Comparable<AccessoryCategory> , Serializable{
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private String category_id;
 	private String display_name;
+	@JsonIgnore
 	private boolean display_on_front_end;
+	@JsonIgnore
 	private Integer display_order;
 	
 	public String getCategory_id() {
@@ -36,8 +39,6 @@ public class AccessoryCategory implements Comparable<AccessoryCategory>{
 		this.display_name = display_name;
 	}
 
-	@JsonIgnore
-	@JsonProperty(value = "display_on_front_end")
 	public boolean isDisplay_on_front_end() {
 		return display_on_front_end;
 	}
@@ -46,8 +47,6 @@ public class AccessoryCategory implements Comparable<AccessoryCategory>{
 		this.display_on_front_end = display_on_front_end;
 	}
 
-	@JsonIgnore
-	@JsonProperty(value = "dispaly_order")
 	public Integer getDisplay_order() {
 		return display_order;
 	}
@@ -71,6 +70,12 @@ public class AccessoryCategory implements Comparable<AccessoryCategory>{
 			return -1;
 		else
 			return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "AccessoryCategory [category_id=" + category_id + ", display_name=" + display_name
+				+ ", display_on_front_end=" + display_on_front_end + ", display_order=" + display_order + "]";
 	}
 
 }

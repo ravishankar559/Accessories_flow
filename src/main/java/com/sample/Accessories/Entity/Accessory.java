@@ -1,21 +1,25 @@
 package com.sample.Accessories.Entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 @Entity
 @Table(name = "spr_sku_acc")
-public class Accessory {
+@JsonFilter("AccesoryFilter")
+public class Accessory implements Serializable {
 
 	@Id 
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private String sku_id;
 	private String ens_id;
 	private double list_price;
-	private String inventory;
 	
 	public String getSku_id() {
 		return sku_id;
@@ -35,12 +39,9 @@ public class Accessory {
 	public void setList_price(double list_price) {
 		this.list_price = list_price;
 	}
-	public String getInventory() {
-		return inventory;
-	}
-	public void setInventory(String inventory) {
-		this.inventory = inventory;
+	@Override
+	public String toString() {
+		return "Accessory [sku_id=" + sku_id + ", ens_id=" + ens_id + ", list_price=" + list_price + "]";
 	}
 	
-
 }
